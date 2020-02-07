@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/matthew-lorber/backgammon/issues"
   },
-  "homepage": "https://github.com/matthew-lorber/backgammon#readme"
+  "homepage": "https://github.com/matthew-lorber/backgammon#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }

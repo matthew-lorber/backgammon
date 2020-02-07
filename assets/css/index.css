@@ -1,6 +1,10 @@
-body,
-.main_game,
-article {
+@font-face {
+    font-family:gothic;
+    src:url(../fonts/DidactGothic-Regular.ttf);
+    font-display:block;
+}
+body {
+    font-family:gothic;
     position:fixed;
     top:0;
     left:0;
@@ -12,31 +16,12 @@ article {
     text-align:center;
     padding:none;
     margin:none;
-    background: #222;
-    color:white;
+    background: #111;
+    color:rgba(255,255,255,0.6);
 }
-* {box-sizing:border-box;}
-
-#board0 {
-    width:90vw;
-    height:90vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:15px;
-    margin:none;
-    background: rgba(255,255,255,0.4);
-    color:white;
-}
-
-.row {
-    width:80vw;
-    height:calc(80vh/4);
-}
-
-.col {
-    border:1px solid whitesmoke;
-    width:calc(80vw / 12);
-    height:50vh;
+footer {
+    font-size:0.6rem;
+    position:fixed;
+    bottom:0.5rem;
+    left:0.5rem;
 }
