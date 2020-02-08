@@ -4,24 +4,113 @@
     font-display:block;
 }
 body {
-    font-family:gothic;
+    display:flex;
     position:fixed;
     top:0;
     left:0;
     width:100vw;
     height:100vh;
-    display:flex;
+    margin:0;
     align-items:center;
     justify-content:center;
-    text-align:center;
-    padding:none;
-    margin:none;
+    font-family:gothic;
     background: #111;
     color:rgba(255,255,255,0.6);
 }
-footer {
-    font-size:0.6rem;
+#open-icon {
     position:fixed;
-    bottom:0.5rem;
-    left:0.5rem;
+    top:0;
+    right:0;
+    cursor:pointer;
+    filter:invert(1);
+    opacity:0.2;
+    transform-origin:center center;
+    transform:scale(0.5) rotate(45deg);
+    transition:all 0.5s ease-in-out;
+    z-index:3;
+}
+#open-icon:hover {
+    transform:scale(0.5) rotate(45deg);
+    opacity:0.7;
+}
+#open-icon.open {
+    transform:scale(0.5) rotate(0deg);
+}
+#dice {
+    display:flex;
+}
+#board {
+    cursor:pointer;
+    z-index:0;
+    width:75vw;
+}
+/* TOOLS MENU */
+#tools {
+    position:fixed;
+    top:-25vh;
+    right:0;
+    width:100vw;
+    height:25vh;
+    background:none;
+    z-index:1;
+    opacity:0;
+    transition:all 0.5s ease-in-out;
+}
+#tools.open {
+    top:0;
+    opacity:1;
+}
+#things {
+    position:absolute;
+    right:10%;
+    top:1.3rem;
+}
+#things > span,
+#things2 > span {
+    margin-left:1rem;
+}
+#things > span:hover {
+    cursor:pointer;
+    font-weight:600;
+    color:rgba(255,255,255,0.7);
+}
+#things2 {
+    position:absolute;
+    right:10%;
+    top:3rem;
+}
+.color {
+    background:none;
+    border:none;
+}
+button {
+    cursor:pointer;
+    width:100%;
+    height:2rem;
+    background:rgba(255,255,255,0.2);
+    border:none;
+    color:#111;
+    font-family:gothic;
+    text-align:center;
+    transition:all 0.2s ease-in-out;
+}
+button:hover {
+    font-weight:800;
+    color:rgba(255,255,255,0.7);
+}
+/* COLORS */
+.black {
+    fill:#808080;
+}
+.white {
+    fill:#782;
+    opacity:0.7;
+}
+/* ROLL */
+#roll {
+    position:absolute;
+    cursor:pointer;
+    user-select:none;
+    z-index:4;
+    /* user-select:none; */
 }
