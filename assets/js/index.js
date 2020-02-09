@@ -32,6 +32,16 @@ function fullscreen() {
     else {document.exitFullscreen();}
 }
 
+// CHANGE COLORS
+$("#black").change(()=>$(".black").css("fill",$("#black").val()));
+$("#white").change(()=>$(".white").css("fill",$("#white").val()));
+$("#page").change(()=>$("body,html").css("background-color",$("#page").val()));
+$("#background").change(()=>$(".background").css("fill",$("#background").val()));
+$("#inset-sel").change(()=>$("#inset").css("fill",$("#inset-sel").val()));
+$("#border").change(()=>$("#board-border").css("stroke",$("#border").val()));
+$("#dice").change(()=>$(".die").css("fill",$("#dice").val()));
+$("#dots").change(()=>$(".dot").css("fill",$("#dots").val()));
+
 // ROLL DICE
 function roll() {
     let d1 = Math.ceil(Math.random()*6);
