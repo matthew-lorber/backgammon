@@ -10,6 +10,7 @@
     --dice:max(3vw,3vh);
     --hdice:max(1.5vw,1.5vh);
     --dot:max(0.7vw,0.7vh);
+    --chip:3.5vw;
 }
 body {
     cursor:default;
@@ -48,50 +49,75 @@ body {
 #things > span:hover {
     text-decoration:underline;
 }
-/* GAMEBOARD */
-#board {
+
+/* BOARD */
+#board,
+#gameboard {
     position:absolute;
-    width:80vw;
-    height:80vh;
+    width:75vw;
+    height:75vh;
     transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    border:1px solid rgba(255,255,255,0.4);
+    border:1px solid #000;
 }
-#top {
+#top,
+#game-top {
     position:absolute;
     top:0;
     left:0;
     width:100%;
     height:50%;
 }
-#bottom {
+#bottom,
+#game-bottom {
     position:absolute;
     top:50%;
     left:0;
     width:100%;
     height:50%;
 }
-#top > div,
-#bottom > div {
+#top span,
+#bottom span,
+#game-top span,
+#game-bottom span {
     display:flex;
     flex-direction:column;
     align-items:center;
     float:left;
     width:calc(100% / 13);
     height:100%;
+    background:none;
+}
+#game-bottom span {
+    justify-content:flex-end;
 }
 .chip {
-    cursor:pointer;
-    position:relative;
-    z-index:10;
-    width:4vw;
-    height:4vw;
+    width:var(--chip);
+    height:var(--chip);
     border-radius:50%;
-    
+    cursor:pointer;
+    z-index:10;
 }
-
+#game-top .chip,
+#game-bottom .chip {
+    width:var(--chip);
+    height:var(--chip);
+    border-radius:50%;
+}
+#game-top .chip.black,
+#game-bottom .chip.black {
+    background-color:#555;
+    box-shadow:none;
+}
+#game-top .chip.white,
+#game-bottom .chip.white {
+    background-color:#bbb;
+    box-shadow:none;
+}
 .space {
     width:100%;
     height:100%;
+    position:relative;
+    z-index:0;
 }
 #top .space {
     clip-path:polygon(0 0, 50% 75%, 100% 0);
@@ -105,21 +131,26 @@ body {
     cursor:pointer;
     clip-path:polygon(0 0, 50% 85%, 100% 0);
 }
+#bottom .space:hover {
+    cursor:pointer;
+    clip-path:polygon(0 100%, 50% 15%, 100% 100%);
+}
 #top .space:nth-child(odd),
 #bottom .space:nth-child(even) {
-    background-color:rgba(255,255,255,0.4);
+    background-color:#555;
 }
 #top .space:nth-child(even),
 #bottom .space:nth-child(odd) {
-    background-color:rgba(255,255,255,0.6);
+    background-color:#ddd;
 }
-#top div:nth-child(n+7),
-#bottom div:nth-child(n+7) {
+#top span:nth-child(n+7),
+#bottom span:nth-child(n+7),
+#game-top span:nth-child(n+7),
+#game-bottom span:nth-child(n+7) {
     transform:translateX(100%);
 }
-.bounce {
-    background:black;
-}
+
+/* BOUNCE AREAS */
 #bounce-top {
     position:absolute;
     top:0;
@@ -138,15 +169,7 @@ body {
     background:lightgray;
     transform:translateX(-50%);
 }
-#dice {
-    display:flex;
-}
-.white {
-    fill:rgba(255,255,255,0.3);
-}
-.white-dice {
-    background:rgba(255,255,255,0.3);
-}
+
 /* TOOLS MENU */
 #tools {
     position:fixed;
@@ -182,6 +205,8 @@ body {
     background:none;
     border:none;
 }
+
+/* BUTTONS */
 button {
     cursor:pointer;
     width:100%;
@@ -197,15 +222,17 @@ button:hover {
     font-weight:800;
     color:rgba(255,255,255,0.7);
 }
+
 /* COLORS */
 .black {
-    background:#555;
-    box-shadow: inset 0 0 10px #000;
+    background-color:#555;
+    box-shadow: inset 0 0 6px #000;
 }
 .white {
-    background:#bbb;
-    box-shadow: inset 0 0 10px #000;
+    background-color:#ddd;
+    box-shadow: inset 0 0 6px #000;
 }
+
 /* DICE */
 #dice-black,
 #dice-white {
@@ -236,6 +263,8 @@ button:hover {
     margin:calc(var(--dice));
     transform-style:preserve-3d;
     transform-origin:var(--hdice) var(--hdice);
+    z-index:15;
+    transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 #d-1 div,
 #d-2 div,
@@ -246,25 +275,30 @@ button:hover {
     left:0;
     width:var(--dice);
     height:var(--dice);
-    /* border:1px solid #222; */
 }
 .f-1 {
     transform:translateZ(calc(-1 * var(--hdice))) rotateY(180deg);
+    border:none;
 }
 .f-2 {
     transform:rotateY(90deg) translateZ(var(--hdice));
+    border:none;
 }
 .f-3 {
     transform:rotateX(90deg) translateZ(var(--hdice));
+    border:none;
 }
 .f-4 {
     transform:rotateX(-90deg) translateZ(var(--hdice));
+    border:none;
 }
 .f-5 {
     transform:rotateY(-90deg) translateZ(var(--hdice));
+    border:none;
 }
 .f-6 {
     transform:translateZ(var(--hdice));
+    border:none;
 }
 .black-dice span,
 .white-dice span {

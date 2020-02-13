@@ -30,41 +30,41 @@
         </div>
     </article>
 
-
-    <!-- GAMEBOARD -->
+    <!-- GAMEBOARD BACKGROUND -->
     <article id="board">
         <section id="top">
-            <div><span class="space black"></span></div>
-            <div><span class="space white"></span></div>
-            <div><span class="space black"></span></div>
-            <div><span class="space white"></span></div>
-            <div><span class="space black"></span></div>
-            <div><span class="space white"></span></div>
-            <div><span class="space black"></span></div>
-            <div><span class="space white"></span></div>
-            <div><span class="space black"></span></div>
-            <div><span class="space white"></span></div>
-            <div><span class="space black"></span></div>
-            <div><span class="space white"></span></div>
+            <span class="space black"></span>
+            <span class="space white"></span>
+            <span class="space black"></span>
+            <span class="space white"></span>
+            <span class="space black"></span>
+            <span class="space white"></span>
+            <span class="space black"></span>
+            <span class="space white"></span>
+            <span class="space black"></span>
+            <span class="space white"></span>
+            <span class="space black"></span>
+            <span class="space white"></span>
         </section>
         <section id="bottom">
-            <div><span class="space white"></span></div>
-            <div><span class="space black"></span></div>
-            <div><span class="space white"></span></div>
-            <div><span class="space black"></span></div>
-            <div><span class="space white"></span></div>
-            <div><span class="space black"></span></div>
-            <div><span class="space white"></span></div>
-            <div><span class="space black"></span></div>
-            <div><span class="space white"></span></div>
-            <div><span class="space black"></span></div>
-            <div><span class="space white"></span></div>
-            <div><span class="space black"></span></div>
+            <span class="space white"></span>
+            <span class="space black"></span>
+            <span class="space white"></span>
+            <span class="space black"></span>
+            <span class="space white"></span>
+            <span class="space black"></span>
+            <span class="space white"></span>
+            <span class="space black"></span>
+            <span class="space white"></span>
+            <span class="space black"></span>
+            <span class="space white"></span>
+            <span class="space black"></span>
         </section>
         
+        
+        <!-- BOUNCE AREAS -->
         <div id="bounce-top" class="bounce"></div>
         <div id="bounce-bottom" class="bounce"></div>
-        
         
         <!-- GRAVEYARD -->
         <article id="grave-white" class="white chip">15</article>
@@ -72,8 +72,42 @@
         
         
         
-    <!-- WHITE DICE -->
-    <div id="dice-white">
+    
+        
+    </article>
+
+    <!-- GAMEBOARD MOVING AREA -->
+    <article id="gameboard">
+        <section id="game-top">
+            <span class="space"></span>
+            <span class="space"></span>
+            <span class="space"></span>
+            <span class="space"></span>
+            <span class="space"></span>
+            <span class="space"></span>
+            <span class="space"></span>
+            <span class="space"></span>
+            <span class="space"></span>
+            <span class="space"></span>
+            <span class="space"></span>
+            <span class="space"></span>
+        </section>
+        <section id="game-bottom">
+            <span class="space"></span>
+            <span class="space"></span>
+            <span class="space"></span>
+            <span class="space"></span>
+            <span class="space"></span>
+            <span class="space"></span>
+            <span class="space"></span>
+            <span class="space"></span>
+            <span class="space"></span>
+            <span class="space"></span>
+            <span class="space"></span>
+            <span class="space"></span>
+        </section>
+        <!-- WHITE DICE -->
+    <div id="dice-white" class="dice">
         <div id="d-3" class="rolling">
             <div class="f-1 white-dice white"><span></span></div>
             <div class="f-2 white-dice white"><span></span><span></span></div>
@@ -92,7 +126,7 @@
         </div>
     </div>
     <!-- BLACK DICE -->
-    <div id="dice-black">
+    <div id="dice-black" class="dice">
         <div id="d-1" class="rolling">
             <div class="f-1 black-dice black"><span></span></div>
             <div class="f-2 black-dice black"><span></span><span></span></div>
@@ -110,13 +144,7 @@
             <div class="f-6 black-dice black"><span></span><span></span><span></span><span></span><span></span><span></span></div>
         </div>
     </div>
-        
-        
-        
-        
-        
     </article>
-
 
     <!-- SCRIPT -->
     <script src="./assets/js/jquery.3.4.1.min.js"></script>
