@@ -1,13 +1,15 @@
 window.onload = function(){
-    $("#open-icon").click(()=>openMenu()); // opens game menu, below
+    $("#settings").click(()=>openMenu()); // opens game menu, below
     $("#invite").click(()=>invitePlayer()); // invite player, below
     $("#fullscreen").click(()=>fullscreen());
+    $("#double").click(()=>double());
     $("#new-game").click(()=>newgame());
 };
 
 // START A NEW GAME
 function newgame() {
     $("#d-1, #d-2, #d-3, #d-4").removeClass("rolling");
+    $("#doubling").html("");
     $("#whitebar, #blackbar").attr("value",0);
     $("#whitepip, #blackpip").html("167");
     $("#white-chip-in, #black-chip-in").html("0");
@@ -29,11 +31,11 @@ function newgame() {
 
 // OPEN GAME MENU
 function openMenu() {;
-    if ($("#open-icon").hasClass("open")) {
-        $("#tools, #open-icon, #colors").removeClass("open");
+    if ($("#settings").hasClass("open")) {
+        $("#tools, #settings, #colors").removeClass("open");
         $("#board, #gameboard").css("transform","scale(1)");
     } else {
-        $("#tools, #open-icon").addClass("open");
+        $("#tools, #settings").addClass("open");
         $("#board, #gameboard").css("transform","scale(0.7)");
     }
 }
@@ -52,6 +54,21 @@ function fullscreen() {
     else {document.exitFullscreen();}
 }
 
+// DOUBLE
+function double() {
+    let bet = $("#doubling").html();
+    switch(bet) {
+        case "": n=2; break;
+        case "2": n=4; break;
+        case "4": n=8; break;
+        case "8": n=16; break;
+        case "16": n=32; break;
+        case "32": n=64; break;
+        default: return;
+    }
+    $("#doubling").html(n);
+}
+
 // CHANGE COLORS
 $("#change-colors").click(()=>{
     $("#tools").removeClass("open");
@@ -68,33 +85,33 @@ $("#background").change(()=>$("#board").css("background",$("#background").val())
 $("#border").change(()=>$("#board").css("border","1px solid " + $("#border").val()));
 
 // DRAG DICE
-drag(document.getElementById("dice-black"));
-drag(document.getElementById("dice-white"));
+// drag(document.getElementById("dice-black"));
+// drag(document.getElementById("dice-white"));
 
-function drag(x) {
-    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-    x.onmousedown = dragdwn;
-    function dragdwn(e) {
-        pos3 = e.clientX;
-        pos4 = e.clientY;
-        document.onmouseup = stopdrag;
-        document.onmousemove = edrag;
-    }
+// function drag(x) {
+//     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+//     x.onmousedown = dragdwn;
+//     function dragdwn(e) {
+//         pos3 = e.clientX;
+//         pos4 = e.clientY;
+//         document.onmouseup = stopdrag;
+//         document.onmousemove = edrag;
+//     }
 
-    function edrag(e) {
-        pos1 = pos3 - e.clientX;
-        pos2 = pos4 - e.clientY;
-        pos3 = e.clientX;
-        pos4 = e.clientY;
-        x.style.top = (x.offsetTop - pos2) + "px";
-        x.style.left = (x.offsetLeft - pos1) + "px";
-    }
+//     function edrag(e) {
+//         pos1 = pos3 - e.clientX;
+//         pos2 = pos4 - e.clientY;
+//         pos3 = e.clientX;
+//         pos4 = e.clientY;
+//         x.style.top = (x.offsetTop - pos2) + "px";
+//         x.style.left = (x.offsetLeft - pos1) + "px";
+//     }
 
-    function stopdrag() {
-        document.onmouseup = null;
-        document.onmousemove = null;
-    }
-}
+//     function stopdrag() {
+//         document.onmouseup = null;
+//         document.onmousemove = null;
+//     }
+// }
 
 // ROLL DICE
 $(".dice").click(function(){

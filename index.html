@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>backgammon</title>
+    <link rel="shortcut icon" href="./favicon.ico"/>
     <link rel="stylesheet" href="./assets/css/index.css">
 </head>
 <body>
@@ -12,14 +13,16 @@
     <canvas id="c"></canvas>
 
     <!-- OPEN/CLOSE TOOLS ICON -->
-    <div id="open-icon"><img src="./assets/images/close.png" alt="open/close"/></div>
+    <div id="settings"><img src="./assets/images/close.png" alt="open/close"/></div>
 
     <!-- TOOLS (MODAL) -->
     <article id="tools">
         <span id="change-colors">colors</span>
         <span id="invite">invite</span>
+        <span id="share">share</span>
         <span id="fullscreen">fullscreen</span>
-        <span>stats</span>
+        <span id="stats">stats</span>
+        <span id="double">double</span>
         <span id="new-game">new game</span>
     </article>
     <article id="colors">
@@ -66,6 +69,9 @@
         <!-- BOUNCE AREAS -->
         <div id="bounce-top" class="bounce"></div>
         <div id="bounce-bottom" class="bounce"></div>
+
+        <!-- DOUBLING CUBE -->
+        <div id="doubling"></div>
         
     </article>
 
