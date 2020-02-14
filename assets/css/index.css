@@ -57,7 +57,7 @@ body {
     width:75vw;
     height:75vh;
     transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    border:1px solid #000;
+    border:1px solid rgba(255,255,255,0.2);
 }
 #top,
 #game-top {
@@ -345,7 +345,9 @@ button:hover {
     font-size:1.2rem;
     position:absolute;
     top:25%;
-    right:-5vw;
+    right:-8%;
+    transform:rotate(-90deg);
+    opacity:0.5;
 }
 #grave-black {
     display:flex;
@@ -355,7 +357,18 @@ button:hover {
     font-size:1.2rem;
     position:absolute;
     bottom:25%;
-    right:-5vw;
+    right:-8%;
+    transform:rotate(-90deg);
+    opacity:0.5;
+}
+#whitebar,
+#blackbar {
+    padding-left:5px;
+    transition:onchange 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+#whitepip,
+#blackpip {
+    transform:rotate(90deg);
 }
 
 @keyframes spinning {

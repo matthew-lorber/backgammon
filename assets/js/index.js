@@ -8,7 +8,7 @@ window.onload = function(){
 // START A NEW GAME
 function newgame() {
     $("#d-1, #d-2, #d-3, #d-4").removeClass("rolling");
-    $("#grave-white, #grave-black").html("0");
+    $("#whitebar, #blackbar").attr("value",0);
     for (let i=0; i<5; i++) {
         $("#game-top > span:nth-child(7)").append("<span class='white chip'></span>");
         $("#game-top > span:nth-child(1)").append("<span class='black chip'></span>");
