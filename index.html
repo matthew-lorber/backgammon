@@ -16,18 +16,20 @@
 
     <!-- TOOLS (MODAL) -->
     <article id="tools">
-        <div id="things">
-            <span>black<input class="color" type="color" id="black" value="#111111"></span>
-            <span>white<input class="color" type="color" id="white" value="#111111"></span>
-            <span>page<input class="color" type="color" id="page" value="#111111"></span>
-            <span>board<input class="color" type="color" id="background" value="#111111"></span>
-            <span>border<input class="color" type="color" id="border" value="#111111"></span>
-            <span id="invite">invite</span>
-            <span id="fullscreen">fullscreen</span>
-            <span>stats</span>
-            <span>save changes</span>
-            <span id="new-game">new game</span>
-        </div>
+        <span id="change-colors">colors</span>
+        <span id="invite">invite</span>
+        <span id="fullscreen">fullscreen</span>
+        <span>stats</span>
+        <span id="new-game">new game</span>
+    </article>
+    <article id="colors">
+        <span>reset to defaults <sub><img class="color-icon" src="./assets/images/reset.png"/></sub></span>
+        <span>black<input class="color" type="color" id="black" value="#111111"></span>
+        <span>white<input class="color" type="color" id="white" value="#111111"></span>
+        <span>page<input class="color" type="color" id="page" value="#111111"></span>
+        <span>board<input class="color" type="color" id="background" value="#111111"></span>
+        <span>border<input class="color" type="color" id="border" value="#111111"></span>
+        <span>save changes <sub><img class="color-icon" src="./assets/images/save.png"/></sub></span>
     </article>
 
     <!-- GAMEBOARD BACKGROUND -->
@@ -61,25 +63,9 @@
             <span class="space black"></span>
         </section>
         
-        
         <!-- BOUNCE AREAS -->
         <div id="bounce-top" class="bounce"></div>
         <div id="bounce-bottom" class="bounce"></div>
-        
-        <!-- GRAVEYARD -->
-        <article id="grave-white">
-            <aside id="whitepip">0</aside>
-            <label for="whitebar" style="display:none">white grave</label>
-            <meter id="whitebar" value="15" max="15"></meter>
-        </article>
-        <article id="grave-black">
-            <aside id="blackpip">0</aside>
-            <label for="blackbar" style="display:none">black grave</label>
-            <meter id="blackbar" value="15" max="15"></meter>
-        </article>
-        
-        
-    
         
     </article>
 
@@ -113,44 +99,61 @@
             <span class="space"></span>
             <span class="space"></span>
         </section>
+
         <!-- WHITE DICE -->
-    <div id="dice-white" class="dice">
-        <div id="d-3" class="rolling">
-            <div class="f-1 white-dice white"><span></span></div>
-            <div class="f-2 white-dice white"><span></span><span></span></div>
-            <div class="f-3 white-dice white"><span></span><span></span><span></span></div>
-            <div class="f-4 white-dice white"><span></span><span></span><span></span><span></span></div>
-            <div class="f-5 white-dice white"><span></span><span></span><span></span><span></span><span></span></div>
-            <div class="f-6 white-dice white"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <div id="dice-white" class="dice">
+            <div id="d-3" class="rolling">
+                <div class="f-1 white-dice white"><span></span></div>
+                <div class="f-2 white-dice white"><span></span><span></span></div>
+                <div class="f-3 white-dice white"><span></span><span></span><span></span></div>
+                <div class="f-4 white-dice white"><span></span><span></span><span></span><span></span></div>
+                <div class="f-5 white-dice white"><span></span><span></span><span></span><span></span><span></span></div>
+                <div class="f-6 white-dice white"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            </div>
+            <div id="d-4" class="rolling">
+                <div class="f-1 white-dice white"><span></span></div>
+                <div class="f-2 white-dice white"><span></span><span></span></div>
+                <div class="f-3 white-dice white"><span></span><span></span><span></span></div>
+                <div class="f-4 white-dice white"><span></span><span></span><span></span><span></span></div>
+                <div class="f-5 white-dice white"><span></span><span></span><span></span><span></span><span></span></div>
+                <div class="f-6 white-dice white"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            </div>
         </div>
-        <div id="d-4" class="rolling">
-            <div class="f-1 white-dice white"><span></span></div>
-            <div class="f-2 white-dice white"><span></span><span></span></div>
-            <div class="f-3 white-dice white"><span></span><span></span><span></span></div>
-            <div class="f-4 white-dice white"><span></span><span></span><span></span><span></span></div>
-            <div class="f-5 white-dice white"><span></span><span></span><span></span><span></span><span></span></div>
-            <div class="f-6 white-dice white"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+
+        <!-- BLACK DICE -->
+        <div id="dice-black" class="dice">
+            <div id="d-1" class="rolling">
+                <div class="f-1 black-dice black"><span></span></div>
+                <div class="f-2 black-dice black"><span></span><span></span></div>
+                <div class="f-3 black-dice black"><span></span><span></span><span></span></div>
+                <div class="f-4 black-dice black"><span></span><span></span><span></span><span></span></div>
+                <div class="f-5 black-dice black"><span></span><span></span><span></span><span></span><span></span></div>
+                <div class="f-6 black-dice black"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            </div>
+            <div id="d-2" class="rolling">
+                <div class="f-1 black-dice black"><span></span></div>
+                <div class="f-2 black-dice black"><span></span><span></span></div>
+                <div class="f-3 black-dice black"><span></span><span></span><span></span></div>
+                <div class="f-4 black-dice black"><span></span><span></span><span></span><span></span></div>
+                <div class="f-5 black-dice black"><span></span><span></span><span></span><span></span><span></span></div>
+                <div class="f-6 black-dice black"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            </div>
         </div>
-    </div>
-    <!-- BLACK DICE -->
-    <div id="dice-black" class="dice">
-        <div id="d-1" class="rolling">
-            <div class="f-1 black-dice black"><span></span></div>
-            <div class="f-2 black-dice black"><span></span><span></span></div>
-            <div class="f-3 black-dice black"><span></span><span></span><span></span></div>
-            <div class="f-4 black-dice black"><span></span><span></span><span></span><span></span></div>
-            <div class="f-5 black-dice black"><span></span><span></span><span></span><span></span><span></span></div>
-            <div class="f-6 black-dice black"><span></span><span></span><span></span><span></span><span></span><span></span></div>
-        </div>
-        <div id="d-2" class="rolling">
-            <div class="f-1 black-dice black"><span></span></div>
-            <div class="f-2 black-dice black"><span></span><span></span></div>
-            <div class="f-3 black-dice black"><span></span><span></span><span></span></div>
-            <div class="f-4 black-dice black"><span></span><span></span><span></span><span></span></div>
-            <div class="f-5 black-dice black"><span></span><span></span><span></span><span></span><span></span></div>
-            <div class="f-6 black-dice black"><span></span><span></span><span></span><span></span><span></span><span></span></div>
-        </div>
-    </div>
+        
+        <!-- GRAVEYARD -->
+        <article id="grave-white">
+            <aside id="whitepip">0</aside>
+            <label for="whitebar" style="display:none">white grave</label>
+            <meter id="whitebar" value="15" max="15"></meter>
+            <aside id="white-chip-in">15</aside>
+        </article>
+        <article id="grave-black">
+            <aside id="blackpip">0</aside>
+            <label for="blackbar" style="display:none">black grave</label>
+            <meter id="blackbar" value="15" max="15"></meter>
+            <aside id="black-chip-in">15</aside>
+        </article>
+
     </article>
 
     <!-- SCRIPT -->

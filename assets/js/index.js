@@ -9,6 +9,8 @@ window.onload = function(){
 function newgame() {
     $("#d-1, #d-2, #d-3, #d-4").removeClass("rolling");
     $("#whitebar, #blackbar").attr("value",0);
+    $("#whitepip, #blackpip").html("167");
+    $("#white-chip-in, #black-chip-in").html("0");
     for (let i=0; i<5; i++) {
         $("#game-top > span:nth-child(7)").append("<span class='white chip'></span>");
         $("#game-top > span:nth-child(1)").append("<span class='black chip'></span>");
@@ -27,16 +29,12 @@ function newgame() {
 
 // OPEN GAME MENU
 function openMenu() {;
-    if ($("#tools").hasClass("open")) {
-        $("#tools").removeClass("open");
-        $("#open-icon").removeClass("open");
-        $("#board").css("transform","scale(1)");
-        $("#gameboard").css("transform","scale(1)");
+    if ($("#open-icon").hasClass("open")) {
+        $("#tools, #open-icon, #colors").removeClass("open");
+        $("#board, #gameboard").css("transform","scale(1)");
     } else {
-        $("#tools").addClass("open");
-        $("#open-icon").addClass("open");
-        $("#board").css("transform","scale(0.7)");
-        $("#gameboard").css("transform","scale(0.7)");
+        $("#tools, #open-icon").addClass("open");
+        $("#board, #gameboard").css("transform","scale(0.7)");
     }
 }
 
@@ -55,15 +53,17 @@ function fullscreen() {
 }
 
 // CHANGE COLORS
+$("#change-colors").click(()=>{
+    $("#tools").removeClass("open");
+    $("#colors").addClass("open");
+});
 $("#black").change(()=>{
-    $(".black, .black-dice").css({"background-color":$("#black").val()});
-    // $(".black-dice").css("background",$("#black").val());
+    $(".black, #blackbar").css("background",$("#black").val());
 });
 $("#white").change(()=>{
-    $(".white").css({"background-color":$("#white").val()});
-    // $(".white-dice").css("background",$("#white").val());
+    $(".white, #whitebar").css("background",$("#white").val());
 });
-$("#page").change(()=>$("body,html").css("background-color",$("#page").val()));
+$("#page").change(()=>$("body,html").css("background",$("#page").val()));
 $("#background").change(()=>$("#board").css("background",$("#background").val()));
 $("#border").change(()=>$("#board").css("border","1px solid " + $("#border").val()));
 
