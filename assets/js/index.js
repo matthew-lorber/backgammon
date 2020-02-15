@@ -139,5 +139,15 @@ $(".dice").click(function(){
     $(this).children().removeClass("rolling");
     $(this).children(":first-child").css("transform","rotateX("+r1x+"deg) rotateY("+r1y+"deg) rotateZ("+d3+"deg)");
     $(this).children(":nth-child(2)").css("transform","rotateX("+r2x+"deg) rotateY("+r2y+"deg) rotateZ("+d3+"deg)");
-    if (d1 === d2) {}
+    if (d1 === d2) {
+        setTimeout(()=>{
+            let int = setInterval(()=>{
+                $("#gameboard").append("<img class='star' src='./assets/images/star.png'/>");
+            },100);
+            setTimeout(()=>{
+                clearInterval(int);
+                $(".star").remove();
+            },1000);
+        },600);
+    }
 });

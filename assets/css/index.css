@@ -11,7 +11,7 @@
     --dice:max(3vw,3vh);
     --hdice:max(1.5vw,1.5vh);
     --dot:max(0.7vw,0.7vh);
-    --chip:3.5vw;
+    --chip:3vw;
 }
 body {
     cursor:default;
@@ -38,8 +38,12 @@ body {
     justify-content:center;
     width:75vw;
     height:75vh;
+    border-radius:0.5rem;
     transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     /* border:1px solid rgba(255,255,255,0.1); */
+}
+#board {
+    box-shadow:-1rem -1rem 2rem rgba(255,255,255,0.1), 1rem 1rem 2rem rgba(0,0,0,0.3);
 }
 #top,
 #game-top {
@@ -143,15 +147,15 @@ body {
     align-items:center;
     justify-content:center;
     position:absolute;
+    right:-20px;
     width:calc(2 * var(--dice));
     height:calc(2 * var(--dice));
-    background:#777;
+    /* background:#777; */
     font-family:gothic;
     font-weight:900;
     font-size:2rem;
     color:#222;
-    box-shadow:inset 0 0 10px #222;
-    text-shadow:0px,0px,8px blue;
+    /* box-shadow:inset 0 0 10px #222; */
 }
 
 /* BOUNCE AREAS */
@@ -161,9 +165,9 @@ body {
     left:50%;
     width:calc(100% / 13);
     height:50%;
-    background:gray;
+    /* background:gray; */
     transform:translateX(-50%);
-    box-shadow:inset 0 0 10px #222;
+    /* box-shadow:inset 0 0 10px #222; */
 }
 #bounce-bottom {
     position:absolute;
@@ -171,9 +175,9 @@ body {
     left:50%;
     width:calc(100% / 13);
     height:50%;
-    background:lightgray;
+    /* background:lightgray; */
     transform:translateX(-50%);
-    box-shadow:inset 0 0 10px #222;
+    /* box-shadow:inset 0 0 10px #222; */
 }
 
 /* TOOLS MENU */
@@ -330,6 +334,7 @@ button:hover {
     height:var(--dot);
     border-radius:50%;
     background:#bbb;
+    box-shadow:none;
     z-index:6;
 }
 .white-dice span {
@@ -338,6 +343,7 @@ button:hover {
     height:var(--dot);
     border-radius:50%;
     background:#222;
+    box-shadow:none;
     z-index:6;
 }
 .f-1 span {top:38%;left:38%;}
@@ -418,7 +424,21 @@ meter::-webkit-meter-bar {
     transform:rotate(90deg);
 }
 
+/* EFFECTS */
+.star {
+    position:absolute;
+    top:50%;
+    left:50%;
+    opacity:0.6;
+    animation: stars 1s ease-in-out;
+}
+
+/* KEYFRAMES */
 @keyframes spinning {
     0% {transform:rotateX(45deg) rotateY(45deg)}
     100% {transform:rotateX(765deg) rotateY(405deg)}
+}
+@keyframes stars {
+    0% {transform:scale(0)}
+    100% {transform:scale(3)}
 }
